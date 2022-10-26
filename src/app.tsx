@@ -1,14 +1,17 @@
-import { useState } from 'preact/hooks'
-import './app.css'
+import { Hello } from './components/hello/hello';
+import classes from './app.module.css'
 
 export function App() {
-  const [count, setCount] = useState(0)
-
+  console.log(classes);
   return (
     <>
-      <h1 class="hello">
-        Hello world!
-      </h1>
+      <header class={classes.header}>
+        <h1 class={classes.h1}>Preact App Starter</h1>
+      </header>
+
+      <main class={classes.main}>
+        <Hello />
+      </main>
     </>
   )
 }
