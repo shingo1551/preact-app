@@ -1,5 +1,6 @@
 import { render } from 'preact'
 import { App } from './app'
-import './index.css'
+import { setup } from '@twind/preact'
+setup({ props: {} })
 
 render(<App />, document.getElementById('app') as HTMLElement)
