@@ -1,11 +1,14 @@
 import { useState } from 'preact/hooks';
 import Router from 'preact-router';
-import { css } from 'twind/css'
+
 import { Menu } from './components/menu';
 import { Hello } from './components/hello';
 import { Lifecycle } from './components/lifecycle';
+import { ToDo } from './components/todo';
 
 //
+import { css } from 'twind/css'
+
 const header = css`
   @apply bg-[#5851ff] text-white;
   @apply h-14 flex items-center;
@@ -40,6 +43,7 @@ export function App() {
           <Hello path="/hello" />
           <Hello path="/hello/:name" />
           <Lifecycle path="/lifecycle" count={10} />
+          <ToDo path="/todo" />
           <div default>Default</div>
         </Router>
       </main>

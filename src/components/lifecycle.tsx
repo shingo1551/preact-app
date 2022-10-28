@@ -1,4 +1,4 @@
-import { PureComponent as Component } from "preact/compat";
+import { Component } from "preact";
 import { css } from 'twind/css'
 
 //
@@ -37,10 +37,19 @@ export class Lifecycle extends Component<P, S> {
     console.log(4, "componentWillReceiveProps", nextProps, nextContext);
   }
 
+  shouldComponentUpdate(
+    nextProps: Readonly<P>,
+    nextState: Readonly<S>,
+    nextContext: any,
+  ) {
+    console.log(5, "shouldComponentUpdate", nextProps, nextState, nextContext);
+    return this.state.count !== nextState.count;
+  }
+
   componentWillUpdate(
     nextProps: Readonly<P>,
     nextState: Readonly<S>,
-    nextContext: Any,
+    nextContext: any,
   ) {
     console.log(6, "componentWillUpdate", nextProps, nextState, nextContext);
   }
