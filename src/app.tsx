@@ -37,6 +37,7 @@ export function App() {
         <Menu />
         <Router onChange={e => setUrl(e.url)}>
           <Hello path="/hello" />
+          <Hello path="/hello/:name" />
           <div default>Default</div>
         </Router>
       </main>
