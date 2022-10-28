@@ -6,7 +6,11 @@ const h1 = css`
 `
 
 //
-export function Hello() {
+interface Props {
+  path: string;
+}
+
+export function Hello(props: Props) {
   return (
     <>
       <h1 tw={h1}>

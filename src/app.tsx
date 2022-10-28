@@ -1,5 +1,8 @@
-import { Hello } from './components/hello';
+import { useState } from 'preact/hooks';
+import Router from 'preact-router';
 import { css } from 'twind/css'
+import { Menu } from './components/menu';
+import { Hello } from './components/hello';
 
 //
 const header = css`
@@ -22,6 +25,8 @@ const main = css`
 
 //
 export function App() {
+  const [_url, setUrl] = useState('/');
+
   return (
     <>
       <header tw={header}>
@@ -29,7 +34,11 @@ export function App() {
       </header>
 
       <main tw={main}>
-        <Hello />
+        <Menu />
+        <Router onChange={e => setUrl(e.url)}>
+          <Hello path="/hello" />
+          <div default>Default</div>
+        </Router>
       </main>
     </>
   )
