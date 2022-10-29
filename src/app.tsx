@@ -5,6 +5,7 @@ import { Menu } from './components/menu';
 import { Hello } from './components/hello';
 import { Lifecycle } from './components/lifecycle';
 import { ToDo } from './components/todo';
+import { Chart } from './components/chart';
 
 //
 import { css } from 'twind/css'
@@ -44,6 +45,7 @@ export function App() {
           <Hello path="/hello/:name" />
           <Lifecycle path="/lifecycle" count={10} />
           <ToDo path="/todo" />
+          <Chart path="/chart" />
           <div default>Default</div>
         </Router>
       </main>
