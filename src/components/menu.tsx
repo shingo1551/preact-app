@@ -26,7 +26,6 @@ export function Menu() {
 
       <A href="/chart">Chart</A>
       <A href="/draganddrop">Drag and Drop</A>
-      {/* <A href="/swiper">Swiper</A> */}
     </ul>
   );
 }
