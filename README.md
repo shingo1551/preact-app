@@ -18,3 +18,7 @@ npm i preact-router
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
+
+## GitHub Pages
+
+https://shingo1551.github.io/preact-app/
