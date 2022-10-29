@@ -7,6 +7,7 @@ import { Lifecycle } from './components/lifecycle';
 import { ToDo } from './components/todo';
 import { Chart } from './components/chart';
 import { DragAngDrop } from './components/drag-and-drop';
+import { Swiper } from './components/swiper';
 
 //
 import { css } from 'twind/css'
@@ -50,6 +51,7 @@ export function App() {
 
           <Chart path="/chart" />
           <DragAngDrop path="/draganddrop" />
+          <Swiper path="/swiper" />
 
           <div default>Default</div>
         </Router>

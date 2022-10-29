@@ -6,6 +6,7 @@ import A from "./a";
 const ul = css`
   padding-inline-start: 8px;
   padding-inline-end: 32px;
+  width: 200px;
 `
 
 //
@@ -23,9 +24,9 @@ export function Menu() {
       <A href="/lifecycle">Life Cycle</A>
       <A href="/todo">ToDo</A>
 
-      <A href="/swiperjs">SwiperJS</A>
       <A href="/chart">Chart</A>
       <A href="/draganddrop">Drag and Drop</A>
+      {/* <A href="/swiper">Swiper</A> */}
     </ul>
   );
 }
