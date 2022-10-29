@@ -6,6 +6,7 @@ import { Hello } from './components/hello';
 import { Lifecycle } from './components/lifecycle';
 import { ToDo } from './components/todo';
 import { Chart } from './components/chart';
+import { DragAngDrop } from './components/drag-and-drop';
 
 //
 import { css } from 'twind/css'
@@ -43,9 +44,13 @@ export function App() {
         <Router onChange={e => setUrl(e.url)}>
           <Hello path="/hello" />
           <Hello path="/hello/:name" />
+
           <Lifecycle path="/lifecycle" count={10} />
           <ToDo path="/todo" />
+
           <Chart path="/chart" />
+          <DragAngDrop path="/draganddrop" />
+
           <div default>Default</div>
         </Router>
       </main>
