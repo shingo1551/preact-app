@@ -44,6 +44,7 @@ export function App() {
         <Router onChange={e => setUrl(e.url)}>
           <Hello path="/hello" />
           <Hello path="/hello/:name" />
+          <Hello path="/hello/:name/nested" />
 
           <Lifecycle path="/lifecycle" count={10} />
           <ToDo path="/todo" />
