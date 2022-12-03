@@ -11,6 +11,8 @@
   "dependencies": {
     "@twind/preact": "^1.0.5",
     "apexcharts": "^3.36.0",
+    "jspdf": "^2.5.1",
+    "pdf-lib": "^1.17.1",
     "preact": "^10.10.6",
     "preact-router": "^4.1.0",
     "sortablejs": "^1.15.0"
