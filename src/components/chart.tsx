@@ -46,7 +46,7 @@ export class Chart extends Component {
     const pdfDoc = await PDFDocument.create();
     const page = pdfDoc.addPage();
 
-    const o = await this.chart?.dataURI();
+    const o = (await this.chart?.dataURI()) as { imgURI: string };
     const png = await pdfDoc.embedPng(o.imgURI);
 
     const dims = png.scale(0.6)
@@ -61,7 +61,7 @@ export class Chart extends Component {
   }
 
   _onClick = async (e: Event) => {
-    const o = await this.chart?.dataURI();
+    const o = await this.chart?.dataURI() as { imgURI: string };
     const pdf = new jsPDF();
 
     pdf.addImage(o.imgURI, 'PNG', 10, 30, 100, 60);
