@@ -1,7 +1,12 @@
 import { Component } from "preact";
 import ApexCharts, { ApexOptions } from 'apexcharts';
+
 import { jsPDF } from "jspdf";
-import { PDFDocument } from 'pdf-lib';
+import "./GenShinGothic-Monospace-Regular-normal";
+
+import { PDFDocument, rgb } from 'pdf-lib';
+import fontkit from '@pdf-lib/fontkit'
+
 
 //
 import { css } from 'twind/css'
@@ -44,8 +49,26 @@ export class Chart extends Component {
 
   onClick = async () => {
     const pdfDoc = await PDFDocument.create();
+
+    // Kanji
+    const url = './GenShinGothic-Monospace-Regular.ttf';
+    const fontBytes = await fetch(url).then((res) => res.arrayBuffer());
+
+    pdfDoc.registerFontkit(fontkit);
+    const customFont = await pdfDoc.embedFont(fontBytes, { subset: true });
+
     const page = pdfDoc.addPage();
 
+    //
+    page.drawText('こんにちは', {
+      x: 40,
+      y: 100,
+      size: 35,
+      font: customFont,
+      color: rgb(0, 0.53, 0.71),
+    });
+
+    // chart
     const o = (await this.chart?.dataURI()) as { imgURI: string };
     const png = await pdfDoc.embedPng(o.imgURI);
 
@@ -64,6 +87,11 @@ export class Chart extends Component {
     const o = await this.chart?.dataURI() as { imgURI: string };
     const pdf = new jsPDF();
 
+    console.log(pdf.getFontList());
+
+    pdf.setFont('GenShinGothic-Monospace-Regular', 'normal');
+    pdf.text('こんにちは', 40, 30);
+
     pdf.addImage(o.imgURI, 'PNG', 10, 30, 100, 60);
     pdf.save("pdf-chart.pdf");
   }
@@ -73,7 +101,8 @@ export class Chart extends Component {
       <div>
         <div tw={charts} ref={(elm) => this.div = elm} />
         <hr />
-        <button tw="m-2 p-1 bg-blue-200" onClick={this.onClick}>PDF</button>
+        <button tw="m-2 p-1 bg-blue-200" onClick={this.onClick}>PDF-LIB</button>
+        <button tw="m-2 p-1 bg-blue-200" onClick={this._onClick}>jsPDF</button>
       </div>
     );
   }
