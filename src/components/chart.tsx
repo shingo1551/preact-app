@@ -90,7 +90,8 @@ export class Chart extends Component {
     console.log(pdf.getFontList());
 
     pdf.setFont('GenShinGothic-Monospace-Regular', 'normal');
-    pdf.text('こんにちは', 40, 30);
+    pdf.setFontSize(35);
+    pdf.text('こんにちは', 40, 200);
 
     pdf.addImage(o.imgURI, 'PNG', 10, 30, 100, 60);
     pdf.save("pdf-chart.pdf");
